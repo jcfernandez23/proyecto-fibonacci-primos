@@ -4,352 +4,364 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f97316">
-    <title>Matemáticas que resuelven problemas reales</title>
+    <title>Matemáticas Aplicadas | Fibonacci y Números Primos</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-badge">Desafío Web • Fibonacci y Números Primos</div>
-        <h1>Matemáticas útiles para resolver problemas reales</h1>
-        <p>
-            Este proyecto muestra cómo la serie de Fibonacci y los números primos pueden
-            aplicarse a situaciones cotidianas de control, crecimiento y planificación.
-        </p>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#inicio" aria-label="Ir al inicio">
+                <span class="brand-mark">M</span>
+                <span class="brand-text">
+                    <strong>Matemáticas Aplicadas</strong>
+                    <small>Fibonacci, primos y generación de códigos</small>
+                </span>
+            </a>
 
-        <div class="hero-actions">
-            <a href="#contexto" class="btn btn-primary">Ver contexto</a>
-            <a href="#simuladores" class="btn btn-secondary">Ir a los simuladores</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+                <a href="#contexto">Contexto</a>
+                <a href="#resumen">Resumen</a>
+                <a href="#simuladores">Simuladores</a>
+                <a href="#conclusion">Conclusión</a>
+                <a href="#enlaces">Enlaces</a>
+            </nav>
         </div>
     </header>
 
-    <main class="page">
-
-        <section id="contexto" class="panel">
-            <h2>Contexto del problema</h2>
+    <section class="hero" id="inicio">
+        <div class="container hero-content hero-panel">
+            <div class="hero-badge">Desafío Web • Diseño académico moderno</div>
+            <h1>Matemáticas útiles para resolver problemas reales</h1>
             <p>
-                En la vida real, muchas decisiones pueden organizarse con patrones matemáticos.
-                Los números primos sirven para marcar puntos especiales de revisión; Fibonacci
-                permite modelar crecimientos por etapas; y ambos juntos ayudan a construir
-                planes más completos y fáciles de interpretar.
+                Una plataforma interactiva para analizar patrones con la serie de Fibonacci
+                y los números primos, aplicada a situaciones de revisión, crecimiento y
+                generación de códigos de acceso robustos.
             </p>
-        </section>
 
-        <section class="grid-2">
-            <article class="panel">
-                <h2>Objetivos del proyecto</h2>
-                <ul class="clean-list">
-                    <li>Aplicar números primos a un problema real de control y revisión.</li>
-                    <li>Usar Fibonacci para modelar un crecimiento gradual y ordenado.</li>
-                    <li>Combinar ambos conceptos en un sistema de análisis más completo.</li>
-                    <li>Presentar resultados claros, dinámicos y fáciles de entender.</li>
-                </ul>
-            </article>
-
-            <article class="panel">
-                <h2>Preguntas guía</h2>
-                <ul class="clean-list">
-                    <li>¿Qué problema real resuelve cada simulador?</li>
-                    <li>¿Qué dato debe ingresar el usuario?</li>
-                    <li>¿Qué resultado debe mostrar la página?</li>
-                    <li>¿Cómo ayuda la matemática a tomar una mejor decisión?</li>
-                    <li>¿Cómo se explica el algoritmo de forma sencilla?</li>
-                </ul>
-            </article>
-        </section>
-
-        <section class="panel">
-            <h2>Cómo ingresar los datos</h2>
-            <div class="info-grid">
-                <article class="info-card">
-                    <h3>Primos</h3>
-                    <p>
-                        Ejemplo: del día <strong>1</strong> al día <strong>31</strong>.
-                        El sistema mostrará qué días son primos dentro de ese rango.
-                    </p>
-                </article>
-
-                <article class="info-card">
-                    <h3>Fibonacci</h3>
-                    <p>
-                        Ejemplo: capacidad inicial <strong>10</strong>, etapas <strong>7</strong>
-                        y valor por unidad <strong>25</strong>.
-                    </p>
-                </article>
-
-                <article class="info-card">
-                    <h3>Fibonacci + primos</h3>
-                    <p>
-                        Ejemplo: capacidad inicial <strong>15</strong>, términos <strong>12</strong>
-                        y valor por unidad <strong>20</strong>.
-                    </p>
-                </article>
+            <div class="hero-actions">
+                <a href="#simuladores" class="btn btn-primary">Ir a los simuladores</a>
+                <a href="#resumen" class="btn btn-secondary">Ver resumen académico</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="panel">
-            <h2>Explicación breve de los algoritmos</h2>
-            <div class="algorithm-grid">
-                <article class="algorithm-card accent-orange">
-                    <h3>Números primos</h3>
+    <main>
+
+        <section class="section section-soft" id="contexto">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag">Contexto académico</span>
+                    <h2>¿Qué problema resuelve este proyecto?</h2>
                     <p>
-                        Se revisa si un número solo puede dividirse exactamente entre 1 y sí mismo.
-                        Aquí se usa para detectar días especiales de inspección.
+                        En la vida real, muchas decisiones pueden organizarse con patrones matemáticos.
+                        Los números primos permiten identificar puntos especiales de revisión; Fibonacci
+                        ayuda a representar crecimientos progresivos; y ambos juntos permiten construir
+                        análisis más completos y fáciles de interpretar.
                     </p>
-                </article>
-
-                <article class="algorithm-card accent-teal">
-                    <h3>Serie de Fibonacci</h3>
-                    <p>
-                        Cada valor nuevo se obtiene sumando los dos anteriores. En este proyecto,
-                        representa un crecimiento progresivo por etapas.
-                    </p>
-                </article>
-
-                <article class="algorithm-card accent-violet">
-                    <h3>Fibonacci + primos</h3>
-                    <p>
-                        Se genera una secuencia de Fibonacci y luego se destacan los términos que
-                        también son primos para localizar fases especiales.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section id="simuladores" class="sim-grid">
-
-            <article class="sim-card accent-orange">
-                <header class="sim-header">
-                    <h2>1. Calendario de inspección con números primos</h2>
-                    <p>
-                        Problema real: identificar días especiales de revisión dentro de un rango
-                        de fechas, usando solo los días que son primos.
-                    </p>
-                </header>
-
-                <p class="formula">
-                    Un número primo solo tiene dos divisores exactos: 1 y él mismo.
-                </p>
-
-                <div class="helper-box" id="previewPrimos">
-                    Escribe un rango para ver cómo se analizarán los días primos.
                 </div>
 
-                <form id="form-primos" class="form-grid">
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="diaInicioPrimo">Día inicial</label>
-                            <input
-                                type="number"
-                                id="diaInicioPrimo"
-                                value="1"
-                                min="1"
-                                max="365"
-                                placeholder="Ejemplo: 1"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 1</small>
-                        </div>
+                <div class="two-col">
+                    <article class="info-panel">
+                        <h3>Objetivos del proyecto</h3>
+                        <ul class="clean-list">
+                            <li>Aplicar números primos a un problema real de control y revisión.</li>
+                            <li>Usar Fibonacci para modelar un crecimiento gradual y ordenado.</li>
+                            <li>Combinar ambos conceptos en un sistema de análisis más completo.</li>
+                            <li>Presentar resultados claros, dinámicos y fáciles de entender.</li>
+                        </ul>
+                    </article>
 
-                        <div class="input-field">
-                            <label for="diaFinPrimo">Día final</label>
-                            <input
-                                type="number"
-                                id="diaFinPrimo"
-                                value="31"
-                                min="1"
-                                max="365"
-                                placeholder="Ejemplo: 31"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 31</small>
-                        </div>
+                    <article class="info-panel">
+                        <h3>Preguntas guía</h3>
+                        <ul class="clean-list">
+                            <li>¿Qué problema real resuelve cada simulador?</li>
+                            <li>¿Qué dato debe ingresar el usuario?</li>
+                            <li>¿Qué resultado debe mostrar la página?</li>
+                            <li>¿Cómo ayuda la matemática a tomar una mejor decisión?</li>
+                            <li>¿Cómo se explica el algoritmo de forma sencilla?</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="resumen">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag">Resumen comparativo</span>
+                    <h2>Vista general de las tres aplicaciones</h2>
+                    <p>
+                        Este cuadro resume qué ingresa el usuario, qué procesa el sistema y qué obtiene
+                        como resultado en cada sección.
+                    </p>
+                </div>
+
+                <div class="table-wrap" role="region" aria-label="Tabla resumen de aplicaciones">
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Aplicación</th>
+                                <th>Entrada principal</th>
+                                <th>Proceso</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Calendario con primos</td>
+                                <td>Rango de días y nombre del calendario</td>
+                                <td>Detecta los días que son primos</td>
+                                <td>Lista de días especiales de revisión</td>
+                            </tr>
+                            <tr>
+                                <td>Expansión con Fibonacci</td>
+                                <td>Capacidad inicial, etapas y valor por unidad</td>
+                                <td>Genera la secuencia de Fibonacci</td>
+                                <td>Capacidad final y costo estimado</td>
+                            </tr>
+                            <tr>
+                                <td>Códigos seguros</td>
+                                <td>Cantidad, longitud, semilla y prefijo</td>
+                                <td>Mezcla Fibonacci y primos para formar códigos</td>
+                                <td>Códigos robustos y alfanuméricos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULADOR 1 -->
+        <section class="sim-section sim-section--primos" id="simuladores">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag">Sección 1</span>
+                    <h2>Calendario de inspección con números primos</h2>
+                    <p>
+                        Problema real: identificar días especiales de revisión dentro de un rango,
+                        usando solo los días que son primos.
+                    </p>
+                </div>
+
+                <article class="sim-card accent-orange">
+                    <header class="sim-header">
+                        <h3>Números primos aplicados a control</h3>
+                        <p>
+                            Un número primo solo tiene dos divisores exactos: 1 y él mismo.
+                        </p>
+                    </header>
+
+                    <figure class="card-media">
+                        <img src="img/prime-card.jpg" alt="Representación visual de números primos" loading="lazy" decoding="async">
+                    </figure>
+
+                    <div class="helper-box" id="previewPrimos">
+                        Escribe un rango para ver cómo se analizarán los días primos.
                     </div>
 
-                    <div class="input-field">
-                        <label for="nombreCicloPrimo">Nombre del calendario</label>
-                        <input
-                            type="text"
-                            id="nombreCicloPrimo"
-                            value="Plan de revisión mensual"
-                            maxlength="40"
-                            placeholder="Ejemplo: Plan de revisión mensual"
-                            required
-                        >
-                        <small class="input-hint">Ejemplo: Plan de revisión mensual</small>
-                    </div>
+                    <form id="form-primos" class="form-grid" novalidate>
+                        <div class="input-row">
+                            <div class="field">
+                                <label for="diaInicioPrimo">Día inicial</label>
+                                <input type="number" id="diaInicioPrimo" value="1" min="1" max="365" placeholder="Ejemplo: 1" required>
+                                <small class="input-hint">Ejemplo: 1</small>
+                            </div>
 
-                    <button type="submit" class="btn btn-primary">Detectar días primos</button>
-                </form>
+                            <div class="field">
+                                <label for="diaFinPrimo">Día final</label>
+                                <input type="number" id="diaFinPrimo" value="31" min="1" max="365" placeholder="Ejemplo: 31" required>
+                                <small class="input-hint">Ejemplo: 31</small>
+                            </div>
+                        </div>
 
-                <div id="resultadoPrimos" class="result" aria-live="polite"></div>
-            </article>
+                        <div class="field">
+                            <label for="nombreCicloPrimo">Nombre del calendario</label>
+                            <input type="text" id="nombreCicloPrimo" value="Plan de revisión mensual" maxlength="40" placeholder="Ejemplo: Plan de revisión mensual" required>
+                            <small class="input-hint">Ejemplo: Plan de revisión mensual</small>
+                        </div>
 
-            <article class="sim-card accent-teal">
-                <header class="sim-header">
-                    <h2>2. Plan de expansión con Fibonacci</h2>
+                        <button type="submit" class="btn btn-primary">Detectar días primos</button>
+                    </form>
+
+                    <div id="resultadoPrimos" class="result" aria-live="polite"></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SIMULADOR 2 -->
+        <section class="sim-section sim-section--fibo" id="fibonacci">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag section-tag-cyan">Sección 2</span>
+                    <h2>Plan de expansión con Fibonacci</h2>
                     <p>
                         Problema real: crecer por etapas en una sala de atención, un pequeño negocio
                         o un espacio de trabajo, aumentando la capacidad de forma gradual.
                     </p>
-                </header>
-
-                <p class="formula">
-                    Serie: 1, 1, 2, 3, 5, 8, 13...
-                </p>
-
-                <div class="helper-box" id="previewFibonacci">
-                    Escribe los datos para ver el crecimiento estimado con Fibonacci.
                 </div>
 
-                <form id="form-fibonacci" class="form-grid">
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="capacidadBaseFibo">Capacidad inicial</label>
-                            <input
-                                type="number"
-                                id="capacidadBaseFibo"
-                                value="10"
-                                min="0"
-                                step="1"
-                                placeholder="Ejemplo: 10"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 10</small>
-                        </div>
+                <article class="sim-card accent-teal">
+                    <header class="sim-header">
+                        <h3>Serie de Fibonacci para crecimiento progresivo</h3>
+                        <p>
+                            Cada valor nuevo se obtiene sumando los dos anteriores.
+                        </p>
+                    </header>
 
-                        <div class="input-field">
-                            <label for="etapasFibo">Cantidad de etapas</label>
-                            <input
-                                type="number"
-                                id="etapasFibo"
-                                value="7"
-                                min="1"
-                                max="30"
-                                step="1"
-                                placeholder="Ejemplo: 7"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 7</small>
-                        </div>
+                    <figure class="card-media">
+                        <img src="img/fibonacci-card.jpg" alt="Espiral o patrón relacionado con Fibonacci" loading="lazy" decoding="async">
+                    </figure>
+
+                    <div class="helper-box" id="previewFibonacci">
+                        Escribe los datos para ver el crecimiento estimado con Fibonacci.
                     </div>
 
-                    <div class="input-field">
-                        <label for="valorUnidadFibo">Valor por unidad de expansión</label>
-                        <input
-                            type="number"
-                            id="valorUnidadFibo"
-                            value="25"
-                            min="0"
-                            step="1"
-                            placeholder="Ejemplo: 25"
-                            required
-                        >
-                        <small class="input-hint">Ejemplo: 25</small>
-                    </div>
+                    <form id="form-fibonacci" class="form-grid" novalidate>
+                        <div class="input-row">
+                            <div class="field">
+                                <label for="capacidadBaseFibo">Capacidad inicial</label>
+                                <input type="number" id="capacidadBaseFibo" value="10" min="0" step="1" placeholder="Ejemplo: 10" required>
+                                <small class="input-hint">Ejemplo: 10</small>
+                            </div>
 
-                    <button type="submit" class="btn btn-primary">Generar expansión</button>
-                </form>
-
-                <div id="resultadoFibonacci" class="result" aria-live="polite"></div>
-            </article>
-
-            <article class="sim-card accent-violet">
-                <header class="sim-header">
-                    <h2>3. Expansión y auditoría con Fibonacci + primos</h2>
-                    <p>
-                        Problema real: planificar un crecimiento por fases y marcar como especiales
-                        las etapas cuyo número de fase también es primo.
-                    </p>
-                </header>
-
-                <p class="formula">
-                    Se genera Fibonacci y se resaltan los términos que también son primos.
-                </p>
-
-                <div class="helper-box" id="previewCombinado">
-                    Escribe los datos para ver el análisis combinado.
-                </div>
-
-                <form id="form-combinado" class="form-grid">
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="baseMixta">Capacidad inicial</label>
-                            <input
-                                type="number"
-                                id="baseMixta"
-                                value="15"
-                                min="0"
-                                step="1"
-                                placeholder="Ejemplo: 15"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 15</small>
+                            <div class="field">
+                                <label for="etapasFibo">Cantidad de etapas</label>
+                                <input type="number" id="etapasFibo" value="7" min="1" max="30" step="1" placeholder="Ejemplo: 7" required>
+                                <small class="input-hint">Ejemplo: 7</small>
+                            </div>
                         </div>
 
-                        <div class="input-field">
-                            <label for="terminosMixtos">Cantidad de términos</label>
-                            <input
-                                type="number"
-                                id="terminosMixtos"
-                                value="12"
-                                min="1"
-                                max="30"
-                                step="1"
-                                placeholder="Ejemplo: 12"
-                                required
-                            >
-                            <small class="input-hint">Ejemplo: 12</small>
+                        <div class="field">
+                            <label for="valorUnidadFibo">Valor por unidad de expansión</label>
+                            <input type="number" id="valorUnidadFibo" value="25" min="0" step="1" placeholder="Ejemplo: 25" required>
+                            <small class="input-hint">Ejemplo: 25</small>
                         </div>
-                    </div>
 
-                    <div class="input-field">
-                        <label for="valorUnidadMixta">Valor por unidad de fase</label>
-                        <input
-                            type="number"
-                            id="valorUnidadMixta"
-                            value="20"
-                            min="0"
-                            step="1"
-                            placeholder="Ejemplo: 20"
-                            required
-                        >
-                        <small class="input-hint">Ejemplo: 20</small>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Generar expansión</button>
+                    </form>
 
-                    <button type="submit" class="btn btn-primary">Analizar secuencia</button>
-                </form>
-
-                <div id="resultadoCombinado" class="result" aria-live="polite"></div>
-            </article>
-
+                    <div id="resultadoFibonacci" class="result" aria-live="polite"></div>
+                </article>
+            </div>
         </section>
 
-        <section class="panel">
-            <h2>Conclusión</h2>
-            <p>
-                La matemática permite modelar decisiones reales de forma ordenada. Los números
-                primos sirven para seleccionar puntos especiales de control, Fibonacci ayuda a
-                representar un crecimiento progresivo y, al combinarlos, se obtiene una visión
-                más completa del problema.
-            </p>
+        <!-- SIMULADOR 3 -->
+        <section class="sim-section sim-section--codigos" id="codigos">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag section-tag-violet">Sección 3</span>
+                    <h2>Generación de códigos seguros y robustos</h2>
+                    <p>
+                        Problema real: crear códigos alfanuméricos difíciles de predecir para
+                        aplicaciones académicas, administrativas o de control interno.
+                    </p>
+                </div>
+
+                <article class="sim-card accent-violet">
+                    <header class="sim-header">
+                        <h3>Códigos de acceso generados con Fibonacci y primos</h3>
+                        <p>
+                            La secuencia Fibonacci y los números primos se mezclan para crear códigos
+                            más variados, con estructura alfanumérica y validación interna.
+                        </p>
+                    </header>
+
+                    <figure class="card-media">
+                        <img src="img/security-card.jpg" alt="Pantalla de seguridad digital y generación de códigos" loading="lazy" decoding="async">
+                    </figure>
+
+                    <div class="helper-box" id="previewCodigos">
+                        Escribe los datos para ver la generación de códigos seguros.
+                    </div>
+
+                    <form id="form-codigos" class="form-grid" novalidate>
+                        <div class="input-row">
+                            <div class="field">
+                                <label for="cantidadCodigos">Cantidad de códigos</label>
+                                <input type="number" id="cantidadCodigos" value="5" min="1" max="12" step="1" placeholder="Ejemplo: 5" required>
+                                <small class="input-hint">Ejemplo: 5</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="longitudCodigo">Longitud del código</label>
+                                <input type="number" id="longitudCodigo" value="12" min="6" max="24" step="1" placeholder="Ejemplo: 12" required>
+                                <small class="input-hint">Ejemplo: 12</small>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="field">
+                                <label for="semillaCodigo">Semilla numérica</label>
+                                <input type="number" id="semillaCodigo" value="2026" min="1" step="1" placeholder="Ejemplo: 2026" required>
+                                <small class="input-hint">Ejemplo: 2026</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="prefijoCodigo">Prefijo del código</label>
+                                <input type="text" id="prefijoCodigo" value="AC" maxlength="4" placeholder="Ejemplo: AC" required>
+                                <small class="input-hint">Ejemplo: AC</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Generar códigos</button>
+                    </form>
+
+                    <div id="resultadoCodigos" class="result" aria-live="polite"></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="conclusion">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag">Conclusión</span>
+                    <h2>Resultado final</h2>
+                </div>
+
+                <div class="info-panel conclusion-panel">
+                    <p>
+                        La matemática permite modelar decisiones reales de forma ordenada. Los números
+                        primos sirven para seleccionar puntos especiales de control, Fibonacci ayuda a
+                        representar un crecimiento progresivo y, al combinarlos, se obtiene una visión
+                        más completa del problema.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-soft" id="enlaces">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-tag">Publicación</span>
+                    <h2>Enlaces del proyecto</h2>
+                    <p>Accesos directos al repositorio y a la página publicada.</p>
+                </div>
+
+                <div class="links-grid">
+                    <a href="https://github.com/jcfernandez23/proyecto-fibonacci-primos.git" target="_blank" rel="noopener noreferrer">
+                        Repositorio en GitHub
+                    </a>
+                    <a href="https://jcfernandez23.github.io/proyecto-fibonacci-primos/" target="_blank" rel="noopener noreferrer">
+                        Página publicada
+                    </a>
+                </div>
+            </div>
         </section>
 
     </main>
-    <section class="panel">
-    <h2>Enlaces del proyecto</h2>
-    <div class="links-grid">
-        <a href="https://jcfernandez23.github.io/proyecto-fibonacci-primos/?authuser=1" target="_blank" rel="noopener noreferrer">
-            Repositorio en GitHub
-        </a>
-        <a href="https://github.com/jcfernandez23/proyecto-fibonacci-primos.git?authuser=1" target="_blank" rel="noopener noreferrer">
-            Página publicada
-        </a>
-    </div>
-</section>
+
     <footer class="footer">
-        <p>Desafío Web desarrollado con HTML5, CSS3 y JavaScript puro.</p>
-        <p class="footer-copy">© 2026 Todos los derechos reservados.</p>
+        <div class="container footer-inner">
+            <p>Desafío Web desarrollado con HTML5, CSS3 y JavaScript puro.</p>
+            <p class="footer-copy">© 2026 Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>

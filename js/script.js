@@ -1,20 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const navToggle = document.getElementById("navToggle");
+    const siteNav = document.getElementById("siteNav");
+
     const formPrimos = document.getElementById("form-primos");
     const formFibonacci = document.getElementById("form-fibonacci");
-    const formCombinado = document.getElementById("form-combinado");
+    const formCodigos = document.getElementById("form-codigos");
 
-    const diaInicioPrimo = document.getElementById("diaInicioPrimo");
-    const diaFinPrimo = document.getElementById("diaFinPrimo");
-    const nombreCicloPrimo = document.getElementById("nombreCicloPrimo");
+    const primosInputs = [
+        document.getElementById("diaInicioPrimo"),
+        document.getElementById("diaFinPrimo"),
+        document.getElementById("nombreCicloPrimo")
+    ];
 
-    const capacidadBaseFibo = document.getElementById("capacidadBaseFibo");
-    const etapasFibo = document.getElementById("etapasFibo");
-    const valorUnidadFibo = document.getElementById("valorUnidadFibo");
+    const fiboInputs = [
+        document.getElementById("capacidadBaseFibo"),
+        document.getElementById("etapasFibo"),
+        document.getElementById("valorUnidadFibo")
+    ];
 
-    const baseMixta = document.getElementById("baseMixta");
-    const terminosMixtos = document.getElementById("terminosMixtos");
-    const valorUnidadMixta = document.getElementById("valorUnidadMixta");
+    const codigoInputs = [
+        document.getElementById("cantidadCodigos"),
+        document.getElementById("longitudCodigo"),
+        document.getElementById("semillaCodigo"),
+        document.getElementById("prefijoCodigo")
+    ];
 
+    // Menú responsive
+    if (navToggle && siteNav) {
+        navToggle.addEventListener("click", function () {
+            const isOpen = siteNav.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        siteNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                siteNav.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
+
+    // Vistas previas dinámicas
+    primosInputs.forEach(function (input) {
+        input.addEventListener("input", actualizarVistaPrimos);
+    });
+
+    fiboInputs.forEach(function (input) {
+        input.addEventListener("input", actualizarVistaFibonacci);
+    });
+
+    codigoInputs.forEach(function (input) {
+        input.addEventListener("input", actualizarVistaCodigos);
+    });
+
+    actualizarVistaPrimos();
+    actualizarVistaFibonacci();
+    actualizarVistaCodigos();
+
+    // Formularios
     if (formPrimos) {
         formPrimos.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -29,44 +72,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (formCombinado) {
-        formCombinado.addEventListener("submit", function (event) {
+    if (formCodigos) {
+        formCodigos.addEventListener("submit", function (event) {
             event.preventDefault();
-            analizarFibonacciConPrimos();
+            generarCodigosSeguros();
         });
-    }
-
-    if (diaInicioPrimo && diaFinPrimo && nombreCicloPrimo) {
-        [diaInicioPrimo, diaFinPrimo, nombreCicloPrimo].forEach(function (input) {
-            input.addEventListener("input", actualizarVistaPrimos);
-        });
-        actualizarVistaPrimos();
-    }
-
-    if (capacidadBaseFibo && etapasFibo && valorUnidadFibo) {
-        [capacidadBaseFibo, etapasFibo, valorUnidadFibo].forEach(function (input) {
-            input.addEventListener("input", actualizarVistaFibonacci);
-        });
-        actualizarVistaFibonacci();
-    }
-
-    if (baseMixta && terminosMixtos && valorUnidadMixta) {
-        [baseMixta, terminosMixtos, valorUnidadMixta].forEach(function (input) {
-            input.addEventListener("input", actualizarVistaCombinada);
-        });
-        actualizarVistaCombinada();
     }
 });
 
 function mostrarResultado(elemento, mensajeHTML, esExito) {
+    if (!elemento) return;
+
     elemento.innerHTML = mensajeHTML;
-    elemento.classList.remove("success", "error");
+    elemento.classList.remove("success", "error", "animate");
 
     if (esExito) {
         elemento.classList.add("success");
     } else {
         elemento.classList.add("error");
     }
+
+    void elemento.offsetWidth;
+    elemento.classList.add("animate");
 }
 
 function esPrimo(numero) {
@@ -81,6 +108,50 @@ function esPrimo(numero) {
     }
 
     return true;
+}
+
+function nthPrime(n) {
+    let count = 0;
+    let candidate = 1;
+
+    while (count < n) {
+        candidate++;
+        if (esPrimo(candidate)) {
+            count++;
+        }
+    }
+
+    return candidate;
+}
+
+function fibonacciByIndex(index) {
+    if (index <= 0) return 0;
+    if (index === 1) return 1;
+
+    let a = 0;
+    let b = 1;
+
+    for (let i = 2; i <= index; i++) {
+        const c = a + b;
+        a = b;
+        b = c;
+    }
+
+    return b;
+}
+
+function sanitizarPrefijo(valor) {
+    const limpio = String(valor || "")
+        .toUpperCase()
+        .replace(/[^A-Z0-9]/g, "")
+        .slice(0, 4);
+
+    return limpio || "AC";
+}
+
+function formatearCodigo(base) {
+    const bloques = base.match(/.{1,4}/g);
+    return bloques ? bloques.join("-") : base;
 }
 
 function actualizarVistaPrimos() {
@@ -109,17 +180,19 @@ function actualizarVistaFibonacci() {
     `;
 }
 
-function actualizarVistaCombinada() {
-    const base = document.getElementById("baseMixta").value;
-    const terminos = document.getElementById("terminosMixtos").value;
-    const valor = document.getElementById("valorUnidadMixta").value;
-    const caja = document.getElementById("previewCombinado");
+function actualizarVistaCodigos() {
+    const cantidad = document.getElementById("cantidadCodigos").value;
+    const longitud = document.getElementById("longitudCodigo").value;
+    const semilla = document.getElementById("semillaCodigo").value;
+    const prefijo = document.getElementById("prefijoCodigo").value.trim();
+    const caja = document.getElementById("previewCodigos");
 
     caja.innerHTML = `
         <strong>Vista previa:</strong><br>
-        Capacidad inicial: <strong>${base || "?"}</strong> ·
-        Términos: <strong>${terminos || "?"}</strong> ·
-        Valor por unidad: <strong>${valor || "?"}</strong>
+        Cantidad: <strong>${cantidad || "?"}</strong> ·
+        Longitud: <strong>${longitud || "?"}</strong> ·
+        Semilla: <strong>${semilla || "?"}</strong> ·
+        Prefijo: <strong>${prefijo || "AC"}</strong>
     `;
 }
 
@@ -150,7 +223,6 @@ function analizarDiasPrimos() {
     }
 
     const diasPrimos = [];
-
     for (let i = diaInicio; i <= diaFin; i++) {
         if (esPrimo(i)) {
             diasPrimos.push(i);
@@ -218,62 +290,63 @@ function generarFibonacci() {
     mostrarResultado(salida, html, true);
 }
 
-function analizarFibonacciConPrimos() {
-    const baseMixta = parseInt(document.getElementById("baseMixta").value, 10);
-    const terminos = parseInt(document.getElementById("terminosMixtos").value, 10);
-    const valorUnidad = parseInt(document.getElementById("valorUnidadMixta").value, 10);
-    const salida = document.getElementById("resultadoCombinado");
+function generarCodigosSeguros() {
+    const cantidad = parseInt(document.getElementById("cantidadCodigos").value, 10);
+    const longitud = parseInt(document.getElementById("longitudCodigo").value, 10);
+    const semilla = parseInt(document.getElementById("semillaCodigo").value, 10);
+    const prefijo = sanitizarPrefijo(document.getElementById("prefijoCodigo").value);
+    const salida = document.getElementById("resultadoCodigos");
 
-    if (![baseMixta, terminos, valorUnidad].every(Number.isInteger)) {
-        mostrarResultado(salida, "Ingresa valores enteros válidos.", false);
+    if (![cantidad, longitud, semilla].every(Number.isInteger)) {
+        mostrarResultado(salida, "Ingresa valores numéricos válidos.", false);
         return;
     }
 
-    if (baseMixta < 0 || terminos < 1 || valorUnidad < 0) {
-        mostrarResultado(salida, "Los valores no pueden ser negativos y la cantidad de términos debe ser mayor que 0.", false);
+    if (cantidad < 1 || cantidad > 12) {
+        mostrarResultado(salida, "La cantidad debe estar entre 1 y 12.", false);
         return;
     }
 
-    if (terminos > 30) {
-        mostrarResultado(salida, "Usa un máximo de 30 términos para mantener el análisis legible.", false);
+    if (longitud < 6 || longitud > 24) {
+        mostrarResultado(salida, "La longitud debe estar entre 6 y 24 caracteres.", false);
         return;
     }
 
-    let a = 0;
-    let b = 1;
-    const fibonacci = [];
-    const fibonacciPrimos = [];
-    let suma = 0;
+    if (semilla < 1) {
+        mostrarResultado(salida, "La semilla debe ser un número mayor que 0.", false);
+        return;
+    }
 
-    for (let i = 1; i <= terminos; i++) {
-        const c = a + b;
-        a = b;
-        b = c;
+    const lista = [];
+    const detalle = [];
 
-        fibonacci.push(c);
-        suma += c;
+    for (let i = 0; i < cantidad; i++) {
+        const fib = fibonacciByIndex(i + 5);
+        const prime = nthPrime(i + 1);
+        const baseValue = (semilla + fib) * prime + (i + 1) * 17;
 
-        if (esPrimo(c)) {
-            fibonacciPrimos.push(c);
+        let cuerpo = (
+            baseValue.toString(36).toUpperCase() +
+            (fib * prime + semilla).toString(36).toUpperCase() +
+            (prime + i).toString(36).toUpperCase()
+        ).replace(/[^A-Z0-9]/g, "");
+
+        while (cuerpo.length < longitud) {
+            cuerpo += ((baseValue + fib + prime) * 7).toString(36).toUpperCase();
         }
+
+        cuerpo = cuerpo.slice(0, longitud);
+        const codigo = `${prefijo}-${formatearCodigo(cuerpo)}`;
+
+        lista.push(codigo);
+        detalle.push(`<li><code>${codigo}</code><span>F${i + 1}: ${fib} · P${i + 1}: ${prime}</span></li>`);
     }
 
-    const capacidadFinal = baseMixta + suma;
-    const costoEstimado = suma * valorUnidad;
-
-    let html = `<strong>Secuencia Fibonacci:</strong><br>${fibonacci.join(", ")}<br><br>`;
-
-    if (fibonacciPrimos.length > 0) {
-        html += `<strong>Valores de Fibonacci que también son primos:</strong><br>${fibonacciPrimos.join(", ")}<br><br>`;
-    } else {
-        html += `<strong>Valores de Fibonacci que también son primos:</strong> Ninguno en este rango.<br><br>`;
-    }
-
-    html += `
-        <strong>Suma total de la secuencia:</strong> ${suma.toLocaleString("es-BO")}<br>
-        <strong>Capacidad inicial:</strong> ${baseMixta.toLocaleString("es-BO")}<br>
-        <strong>Capacidad final estimada:</strong> ${capacidadFinal.toLocaleString("es-BO")}<br>
-        <strong>Costo estimado del plan:</strong> ${costoEstimado.toLocaleString("es-BO")}
+    const html = `
+        <strong>Códigos generados:</strong><br>
+        <ul class="code-list">
+            ${detalle.join("")}
+        </ul>
     `;
 
     mostrarResultado(salida, html, true);
